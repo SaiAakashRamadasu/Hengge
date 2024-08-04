@@ -1,0 +1,22 @@
+def find_positive_squares_sum(elements):
+    if not elements:
+        return 0
+    head_element, *tail_elements = elements
+    return (head_element ** 2 if head_element >= 0 else 0) + find_positive_squares_sum(tail_elements)
+
+def process_input():
+    test_case_count = int(input().strip())
+    results_list = []
+    for _ in range(test_case_count):
+        _ = int(input().strip())  
+        integer_list = list(map(int, input().strip().split()))
+        results_list.append(find_positive_squares_sum(integer_list))
+    
+    
+    print('\n'.join(map(str, results_list)))
+
+def main():
+    process_input()
+
+if __name__ == "__main__":
+    main()
